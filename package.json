@@ -1,0 +1,13 @@
+{
+	"name": "npm_creator",
+	"version": "0.0.3",
+	"description": "Serverova strana aplikace klient-npm",
+	"scripts": {
+		"start": "node index.js"
+		},
+	"dependencies":{
+		"async": "*",
+		"commander": "*",
+		"rimraf": "*"
+	}
+}
