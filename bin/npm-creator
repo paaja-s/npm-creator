@@ -1,0 +1,3 @@
+#!/usr/bin/env /home/sg8/node/bin/node
+
+require('../index');

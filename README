@@ -1,0 +1,26 @@
+NPM Creator je pomucka pro stazeni vsech potrebnych modulu pro nase aplikace napsane v Node.js.
+
+Ma dve casti - server a klient. Klient je soucasti iaps a je verzovan jako balicek retia-npm.
+Pri sve instalaci posle svuj seznam modulu (package.json) serveru a ten vrati archiv se sta-
+zenymi moduly. Kod na serveru je tento npm_creator. Server sidli na adrese 192.168.10.104. Vy-
+zaduje ke svemu behu funkcni instalaci Node.js
+
+Zavislost na NPM
+	commander, async, rimraf
+	
+Struktura adresaru a souboru serveru:
+/home/sg8/npm					Hlavni adresar
+/home/sg8/npm/npm_check.sh		Skript kontroly behu serveru
+/home/sg8/npm/npm_creator.block	Blokovaci soubor restartu Cronem
+/home/sg8/npm/index.js			Provadeci kod
+/home/sg8/npm/bin				Adresar s binarkami
+/home/sg8/npm/bin/npm-creator	Binarka
+/home/sg8/npm/lib				Adresar s knihovnami
+/home/sg8/npm/lib/command_os.js	Provadeni prikazu op. systemu
+/home/sg8/npm/lib/dir_reader.js	Cteni souboru v adresari
+/home/sg8/npm/lib/load_send.js	Prijem a poslani souboru na serveru
+/home/sg8/npm/node_modules		Adresar s moduly
+
+V pravidelnych intervalech pomoci Cronu (crontab -l) je beh procesu creatoru sledovan. Pokud
+neni proces nalezen pak je znovu nahozen. Toto se da docasne zablokovat prejmenovanim souboru
+npm_creator.block na npm_creator.lock.
